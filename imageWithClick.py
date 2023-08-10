@@ -9,7 +9,7 @@ while(True):                    # start live frame loop
                                 #   ret is bool value to determine success
     # rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2BGRA) # converts BGR to BGRA
 
-    cv2.imshow('frame')         # display current frame
+    cv2.imshow('frame',frame)         # display current frame
                                 #   also pass 'rgb' if conversion occurs ^
     if cv2.waitKey(1) & 0xFF == ord('q'):   # wait for key press every 1ms
                                             #   bitmask for returned ASCII value of pressed key
