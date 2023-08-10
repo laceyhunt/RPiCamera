@@ -18,13 +18,13 @@ import MySQLdb as mdb
 
 import config
 
-def SkyWeatherKeyGeneration(userKey):
+# def SkyWeatherKeyGeneration(userKey):
 
-    catkey = "AZWqNqDMhvK8Lhbb2jtk1bucj0s2lqZ6" +userKey
+#     catkey = "AZWqNqDMhvK8Lhbb2jtk1bucj0s2lqZ6" +userKey
 
-    md5result = hashlib.md5(catkey.encode())
-    #print ("hashkey =", md5result.hexdigest())
-    return md5result.hexdigest()
+#     md5result = hashlib.md5(catkey.encode())
+#     #print ("hashkey =", md5result.hexdigest())
+#     return md5result.hexdigest()
 
 def takeSkyPicture():
 
@@ -42,7 +42,7 @@ def takeSkyPicture():
         # Camera warm-up time
         time.sleep(2)
 
-        camera.capture('static/skycamera.jpg')
+        camera.capture('images/testimage.jpg')
 
         # now add timestamp to jpeg
         pil_im = Image.open('static/skycamera.jpg')
@@ -222,219 +222,6 @@ def sendSkyWeather():
                 "MAC":config.STATIONMAC,
 	},
 	"utc":currentTime,
-	"sensors":[
-
-
-		{
-			"name":"OutsideTemperature",
-			"value": state.OutdoorTemperature,
-                        "units" : "C"
-
-		},
-		{
-			"name":"OutsideHumidity",
-			"value": state.OutdoorHumidity,
-                        "units" : "%"
-
-		},
-		{
-			"name":"InsideTemperature",
-			"value": state.IndoorTemperature,
-                        "units" : "C"
-		},
-		{
-			"name":"InsideHumidity",
-			"value": state.IndoorHumidity,
-                        "units" : "%"
-
-		},
-		{
-			"name":"RainInLast60Minutes",
-			"value": state.Rain60Minutes,
-                        "units" : "mm/h"
-		},
-		{
-			"name":"VisibleSunlight",
-			"value": state.SunlightVisible,
-                        "units" : "lux"
-		},
-        {
-            "name":"IRSunlight",
-            "value": "0.0",
-                        "units" : "lux"
-        },
-        {
-            "name":"UVSunlightt",
-            "value": "0.0", 
-                        "units" : "lux"
-        },
-		{
-			"name":"WindSpeed",
-			"value": state.WindSpeed*3.6,
-                        "units" : "kph"
-		},
-		{
-			"name":"WindGust",
-			"value": state.WindGust*3.6,
-                        "units" : "kph"
-		},
-		{
-			"name":"WindDirection",
-			"value": state.WindDirection,
-                        "units" : "degrees"
-		},
-		{
-			"name":"totalRain",
-			"value": state.TotalRain,
-                        "units" : "mm"
-
-		},
-		{
-			"name":"BarometricPressure",
-			"value": state.BarometricPressure*10.0,
-                        "units" : "hPa"
-
-		},
-		{
-			"name":"Altitude",
-			"value": state.Altitude,
-                        "units" : "m"
-		},
-		{
-			"name":"SeaLevelPressure",
-			"value": state.BarometricPressureSeaLevel*10.0,
-                        "units" : "hPa"
-		},
-		{
-			"name":"BarometricTrend",
-			"value": bptrendvalue,
-                        "units" : ""
-
-
-		},
-		{
-			"name":"OutdoorAirQuality",
-			"value": state.AQI,
-                        "units" : "AQI"
-		},
-
-		#{
-		#	"name":"UVSunlightIndex",
-		#	"value": state.SunlightUVIndex,
-        #                "units" : "index"
-		#}
-		
-                ],
-	"solarpower":[
-		{
-			"name":"BatteryVoltage",
-			"value": state.batteryVoltage,
-                        "units" : "V"
-
-
-		},
-		{
-			"name":"BatteryCurrent",
-			"value": state.batteryCurrent,
-                        "units" : "ma"
-		},
-		{ 
-                        "name":"SolarVoltage", 
-                        "value": state.solarVoltage,
-                        "units" : "V"
-                },
-		{
-			"name":"SolarCurrent",
-			"value": state.solarCurrent,
-                        "units" : "ma"
-
-		}, 
-                {
-			"name":"LoadVoltage",
-			"value": state.loadVoltage,
-                        "units" : "V"
-		},
-		{
-			"name":"LoadCurrent",
-			"value": state.loadCurrent,
-                        "units" : "ma"
-		},
-		{
-			"name":"BatteryPower",
-			"value": state.batteryPower,
-                        "units" : "W"
-		},
-		{
-			"name":"SolarPower",
-			"value": state.solarPower,
-                        "units" : "W"
-		},
-		{
-			"name":"LoadPower",
-			"value": state.loadPower,
-                        "units" : "W"
-		},
-		{
-			"name":"BatteryCharge",
-			"value": state.batteryCharge,
-                        "units" : "%"
-
-		},
-		{
-			"name":"WXBatteryVoltage",
-			"value": 0,
-                        "units" : "V"
-
-		},
-		{
-			"name":"WXBatteryCurrent",
-			"value": 0 ,
-                        "units" : "ma"
-		},
-		{
-			"name":"WXSolarVoltage",
-			"value": 0 ,
-                        "units" : "V"
-		},
-		{
-			"name":"WXSolarCurrent",
-			"value": 0 ,
-                        "units" : "ma"
-		},
-		{
-			"name":"WXLoadVoltage",
-			"value": 0 ,
-                        "units" : "V"
-		},
-		{
-			"name":"WXLoadCurrent",
-			"value": 0 ,
-                        "units" : "ma"
-		},
-		{
-			"name":"WXBatteryPOWER",
-			"value": 0 ,
-                        "units" : "W"
-		},
-		{
-			"name":"WXSolarPower",
-			"value": 0 ,
-                        "units" : "W"
-		},
-		{
-			"name":"WXLoadPower",
-			"value": 0 ,
-                        "units" : "W"
-		},
-		{
-			"name":"WXBatteryCharge",
-			"value": 0 ,
-                        "units" : "%"
-
-
-		}
-		
-	],
 	"cameras":[
 		{
 			"name":"Sky Camera",
@@ -443,7 +230,7 @@ def sendSkyWeather():
 		
 	]
     }
-    import json
+    # import json
   
     # sending post request and saving response as response object 
     r = requests.post(url = API_ENDPOINT, json = data) 
