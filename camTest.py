@@ -3,18 +3,18 @@ from __future__ import print_function
 import requests
 import time 
 import picamera
-import state
+# import state
 
 import hashlib
 import glob
 import datetime
 import os
 
-from PIL import ImageFont, ImageDraw, Image
-import traceback
-import util
-import datetime as dt
-import MySQLdb as mdb
+# from PIL import ImageFont, ImageDraw, Image
+# import traceback
+# import util
+# import datetime as dt
+# import MySQLdb as mdb
 
 import config
 
