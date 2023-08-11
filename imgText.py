@@ -1,9 +1,10 @@
 import cv2
 import datetime
-path = r'capture.jpg'
+path = r'/home/pi/RPiCamera/capture.jpg'
 image = cv2.imread(path)
 window_name = 'Image'
 text = datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
+print(text)
 font = cv2.FONT_HERSHEY_COMPLEX
 org=(00,185)
 fontScale=1
