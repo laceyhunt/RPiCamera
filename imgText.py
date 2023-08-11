@@ -13,6 +13,7 @@ thickness=2
 image = cv2.putText(image,text,org,font,fontScale,color,thickness,cv2.LINE_AA,False)
 #image = cv2.putText(image, text, org, font, fontScale,color, thickness, cv2.LINE_AA, True) 
 cv2.imshow(window_name,image)
+cv2.imwrite(text+".jpg",image)
 # Wait for the user to press a key
 cv2.waitKey(0)
  
